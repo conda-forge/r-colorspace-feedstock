@@ -1,4 +1,4 @@
-{% set version = '1.4-1' %}
+{% set version = "1.4-1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -13,8 +13,8 @@ source:
   sha256: 693d713a050f8bfecdb7322739f04b40d99b55aed168803686e43401d5f0d673
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -23,16 +23,16 @@ requirements:
   build:
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{posix}}filesystem        # [win]
-    - {{posix}}make
-    - {{posix}}sed               # [win]
-    - {{posix}}coreutils         # [win]
-    - {{posix}}zip               # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
   host:
     - r-base
   run:
     - r-base
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
@@ -41,18 +41,15 @@ test:
 
 about:
   home: http://colorspace.R-Forge.R-project.org, http://hclwizard.org/
-  license: BSD_3_clause
-  summary: 'Carries out mapping between assorted color spaces including RGB, HSV, HLS, CIEXYZ,
-    CIELUV, HCL (polar CIELUV), CIELAB and polar CIELAB. Qualitative, sequential, and
-    diverging color palettes based on HCL colors are provided along with corresponding
-    ggplot2 color scales. Color palette choice is aided by an interactive app (with
-    either a Tcl/Tk or a shiny GUI) and shiny apps with an HCL color picker and a color
-    vision deficiency emulator. Plotting functions for displaying and assessing palettes
-    include color swatches, visualizations of the HCL space, and trajectories in HCL
-    and/or RGB spectrum. Color manipulation functions include: desaturation, lightening/darkening,
-    mixing, and simulation of color vision deficiencies (deutanomaly, protanomaly, tritanomaly).'
+  license: BSD-3-Clause
+  summary: 'Carries out mapping between assorted color spaces including RGB, HSV, HLS, CIEXYZ, CIELUV, HCL (polar CIELUV), CIELAB and polar CIELAB. Qualitative, sequential, and diverging color palettes based on HCL colors are provided along with corresponding ggplot2 color scales. Color palette choice is aided by an interactive
+    app (with either a Tcl/Tk or a shiny GUI) and shiny apps with an HCL color picker and a color vision deficiency emulator. Plotting functions for displaying and assessing palettes include color swatches, visualizations of the HCL space, and trajectories in HCL and/or RGB spectrum. Color manipulation functions include:
+    desaturation, lightening/darkening, mixing, and simulation of color vision deficiencies (deutanomaly, protanomaly, tritanomaly).'
   license_family: BSD
 
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_3_clause
+    - LICENSE
 extra:
   recipe-maintainers:
     - conda-forge/r
