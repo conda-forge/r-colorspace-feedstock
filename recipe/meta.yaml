@@ -1,4 +1,4 @@
-{% set version = "2.0-0" %}
+{% set version = "2.0-1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/colorspace_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/colorspace/colorspace_{{ version }}.tar.gz
-  sha256: 4e6a53af9918db282cefdc71eaa30f507d4d1d682bcfb74cb0dd68a0b282018e
+  sha256: f82fdde36058678d1bd0f410eb45a5874aa28d74e2de30399f28b070a284425e
 
 build:
   merge_build_host: true  # [win]
